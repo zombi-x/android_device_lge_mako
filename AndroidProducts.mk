@@ -14,6 +14,4 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_mako.mk \
-    $(LOCAL_DIR)/omni_mako.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/zombi_mako.mk
