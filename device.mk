@@ -69,7 +69,8 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-	device/lge/mako/media_codecs.xml:system/etc/media_codecs.xml
+	device/lge/mako/media_codecs.xml:system/etc/media_codecs.xml \
+	device/lge/mako/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
@@ -153,9 +154,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
-PRODUCT_CHARACTERISTICS := nosdcard
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.dex2oat-swap=false
 
-PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_PACKAGES += \
 	librs_jni \
